@@ -11,7 +11,7 @@ const SearchBar = (props) => {
           onChange={(event) => props.onType(event.target.value)}
         />
         <label htmlFor="stockedProducts">Only show products on stock</label>
-        <input type="checkbox" id="stockedProducts" />
+        <input type="checkbox" id="stockedProducts" onChange={props.onCheck} />
       </form>
     </div>
   );

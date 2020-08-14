@@ -17,14 +17,11 @@ const ProductTable = (props) => {
         <tbody>
           {props.displayedProds.map((item) => {
             return (
-              <tr key={item.name}>
-                <td>
-                  <ProductRow product={item.name} />
-                </td>
-                <td>
-                  <ProductRow product={item.price} />
-                </td>
-              </tr>
+              <ProductRow
+                name={item.name}
+                price={item.price}
+                stocked={item.stocked}
+              />
             );
           })}
         </tbody>

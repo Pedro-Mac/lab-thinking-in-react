@@ -5,9 +5,10 @@ import React from 'react';
 
 const ProductRow = (props) => {
   return (
-    <div>
-      <p>{props.product}</p>
-    </div>
+    <tr key={props.name} style={{ color: !props.stocked && 'red' }}>
+      <td>{props.price}</td>
+      <td>{props.price}</td>
+    </tr>
   );
 };
 

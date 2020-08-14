@@ -12,10 +12,11 @@ class FilterableProductTable extends Component {
     this.state = {
       filteredProducts: productsList,
       query: '',
+      stockedOnly: false,
     };
   }
 
-  handleProdFiltered = () => {
+  handleFilterByName = () => {
     const query = this.state.query;
     const filteredProds = productsList.filter((prod) =>
       query.length
@@ -24,12 +25,6 @@ class FilterableProductTable extends Component {
     );
 
     return filteredProds;
-
-    // this.setState((previousState) => {
-    //   return {
-    //     filteredProducts: filteredProds,
-    //   };
-    // });
   };
 
   handleQuery = (query) => {
@@ -38,11 +33,18 @@ class FilterableProductTable extends Component {
     });
   };
 
+  handleCheckbox = () => {
+    this.setState({
+      stockedOnly: !this.state.stockedOnly,
+    });
+  };
+
   render() {
-    const filteredList = this.handleProdFiltered();
+    const filteredList = this.handleFilterByName();
+    console.log(this.state);
     return (
       <div>
-        <SearchBar onType={this.handleQuery} />
+        <SearchBar onType={this.handleQuery} onCheck={this.handleCheckbox} />
         <ProductTable displayedProds={filteredList} />
       </div>
     );
